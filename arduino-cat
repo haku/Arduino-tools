@@ -3,14 +3,21 @@
 # Reference:
 # http://www.arduino.cc/playground/Interfacing/LinuxTTY
 
-DEV=$1
-if ! [ -e "$DEV" ] ; then
-  echo "not a file: $DEV"
-  exit 1
-fi
-
 BWD="9600"
 
-stty -F "$DEV" cs8 $BWD ignbrk -brkint -icrnl -imaxbel -opost -onlcr -isig -icanon -iexten -echo -echoe -echok -echoctl -echoke noflsh -ixon -crtscts
+tryCat () {
+  DEV=$1
+  if ! [ -e "$DEV" ] ; then
+    echo "not a file: $DEV"
+    return 1
+  fi
 
-cat "$DEV"
+  stty -F "$DEV" cs8 $BWD ignbrk -brkint -icrnl -imaxbel -opost -onlcr -isig -icanon -iexten -echo -echoe -echok -echoctl -echoke noflsh -ixon -crtscts
+  cat "$DEV"
+  echo "disconnected."
+}
+
+while true; do
+  tryCat $*
+  sleep 5
+done
