@@ -4,6 +4,7 @@ void setup() {
   createTengware(lcd);
   lcd.begin(8, 2);
   
+  lcd.write(162);
   printTengwarChar(lcd, 'm');
   printTengwarChar(lcd, 'e');
   printTengwarChar(lcd, 'm');
@@ -11,10 +12,11 @@ void setup() {
   printTengwarChar(lcd, 'r');
   printTengwarChar(lcd, 'y');
   printTengwarChar(lcd, 'f');
-  printTengwarChar(lcd, 'r');
   lcd.setCursor(0,1);
+  printTengwarChar(lcd, 'r');
   printTengwarChar(lcd, 'e');
   printTengwarChar(lcd, 'e');
+  lcd.write(163);
 }
 
 void loop() {
