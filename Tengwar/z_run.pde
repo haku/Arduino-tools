@@ -1,4 +1,4 @@
-LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+LiquidCrystal lcd(22, 23, 24, 25, 26, 27);
 
 void setup() {
   createTengware(lcd);
