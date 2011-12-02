@@ -1,0 +1,9 @@
+#/bin/sh
+
+DEV=$1
+if ! [ -e "$DEV" ] ; then
+  echo "not a file: $DEV"
+  exit 1
+fi
+
+stty -F "$DEV" -hupcl
