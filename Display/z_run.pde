@@ -9,7 +9,15 @@ void setup() {
   
   index = 0;
   lcd.clear();
-  lcd.print("Ready.");
+  lcd.write(B10100010);
+  lcd.print("  Ready");
+  lcd.setCursor(0,1);
+  lcd.print("  ");
+  lcd.write(B11000011);
+  lcd.write(B11011110);
+  lcd.write(B10111101);
+  lcd.print("  ");
+  lcd.write(B10100011);
   
   Serial.println();
   Serial.print("msg=");
