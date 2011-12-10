@@ -12,7 +12,7 @@ tryCat () {
     return 1
   fi
 
-  stty -F "$DEV" cs8 $BWD ignbrk -brkint -icrnl -imaxbel -opost -onlcr -isig -icanon -iexten -echo -echoe -echok -echoctl -echoke noflsh -ixon -crtscts
+  stty -F "$DEV" cs8 $BWD ignbrk -brkint -icrnl -imaxbel -opost -onlcr -isig -icanon -iexten -echo -echoe -echok -echoctl -echoke noflsh -ixon -crtscts -hupcl
   cat "$DEV"
   echo "disconnected."
 }
